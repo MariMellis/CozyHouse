@@ -20,13 +20,13 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 
-/*
+
 app.use('/auth', require('./routes/auth'));
-app.use('/experiments', require('./routes/experiments'));
+app.use('/diy_projects', require('./routes/diy_projects'));
 app.use('/comments', require('./routes/comments'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/news', require('./routes/news'));
-*/
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -35,13 +35,10 @@ app.get('/', (req, res) => {
     res.send("Hello from Express.JS backend!");
 });
 
-app.use((err, req, res, next) => {
-    if (err.status === 404) {
-      res.status(404).render('404'); // Отобразить шаблон 404
-    } else {
-      next(err); // Передать ошибку дальше
-    }
-  });
+
+app.use((req, res) => {
+  res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+});
 
 // Задаем порт для сервера
 const PORT = process.env.PORT || 1234;
