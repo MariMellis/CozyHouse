@@ -1,20 +1,22 @@
+/* модель "DIY-проект" (коллекция). Тут указаны все поля, которые должны иметь документы этой коллекции. */
+
 const mongoose = require('mongoose');
 
 const DIY_ProjectSchema = new mongoose.Schema({
-    title: { type: String, required: true },
-    instructions: { type: String, required: true },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    username: { type: String, required: true },
-    imageUrl: { type: String },
-    difficulty: { type: Number, min: 1, max: 5, required: true },
-    description: { type: String, required: true },
-    dateAdded: { type: Date, default: Date.now },
+    title: { type: String, required: true }, // заголовок проекта
+    instructions: { type: String, required: true }, // шаги
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // пользователь
+    username: { type: String, required: true }, //имя пользователя
+    imageUrl: { type: String }, // ссылка на картинку
+    difficulty: { type: Number, min: 1, max: 5, required: true }, // сложность
+    description: { type: String, required: true }, // краткое описание
+    dateAdded: { type: Date, default: Date.now }, // дата добавления
     comments: [{
-        user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-        username: { type: String },
-        text: { type: String, required: true },
-        date: { type: Date, default: Date.now }
-    }],
+        user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // пользователь
+        username: { type: String }, // имя пользователя
+        text: { type: String, required: true }, // текст комментария
+        date: { type: Date, default: Date.now } // дата отправления
+    }], // массив с комментариями
 }, { timestamps: true });
 
-module.exports = mongoose.model('DIY_Project', DIY_ProjectSchema);
+module.exports = mongoose.model('DIY_Project', DIY_ProjectSchema); // экспорт

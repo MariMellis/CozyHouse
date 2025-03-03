@@ -1,12 +1,14 @@
-const express = require('express');
-const router = express.Router();
-const multer = require('multer');
-const path = require('path');
+// uploadRoutes.js - обновление маршрутов
+
+const express = require('express'); // модуль для работы с фреймворком Express.js (для backend)
+const router = express.Router(); // маршрутизатор
+const multer = require('multer'); // модуль Multer (загрузка картинок)
+const path = require('path'); // модуль Path (для работы с путями)
 
 // Настройка хранилища multer
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, '../uploads/'); // Убедитесь, что путь правильный
+        cb(null, '../uploads/'); // путь к папке
     },
     filename: function(req, file, cb) {
         cb(null, Date.now() + path.extname(file.originalname)); // уникальное имя файла
@@ -18,9 +20,9 @@ const upload = multer({
     limits: { fileSize: 10 * 1024 * 1024 } // ограничение на размер
 });
 
-const DIY_Project = require('../models/DIY_Project');
-const User = require('../models/User');
-const auth = require('../middleware/auth');
+const DIY_Project = require('../models/DIY_Project'); // модель "DIY-проект"
+const User = require('../models/User'); // модель "Пользователь"
+const auth = require('../middleware/auth'); // "middleware"
 
 // Добавление нового проекта с загрузкой изображения
 router.post('/diy_projects', auth, upload.single('image'), async (req, res) => {
