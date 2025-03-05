@@ -15,22 +15,22 @@ router.post('/:diy_projectId/comments', auth, async (req, res) => {
     try {
         const diy_project = await DIY_Project.findById(diy_projectId);
         if (!diy_project) {
-            console.log('diy_project not found');
-            return res.status(404).json({ message: 'diy_project not found' });
+            console.log('diy_project не найден');
+            return res.status(404).json({ message: 'diy_project не найден' });
         }
 
         // ведение логов на стороне сервера (полезно для отладки)
-        console.log('diy_project found:', diy_project);
-        console.log('User ID from auth middleware:', req.user);
+        console.log('diy_project найден:', diy_project);
+        console.log('User ID из auth middleware:', req.user);
         
         // проверка на наличие пользователя
         const user = await User.findById(req.user); // Извлекаем пользователя по ID
         if (!user) {
-            console.log('User not found');
-            return res.status(404).json({ message: 'User not found' });
+            console.log('Пользователь не найден');
+            return res.status(404).json({ message: 'Пользователь не найден' });
         }
 
-        console.log('User found:', user);
+        console.log('Пользователь найден:', user);
 
         const comment = {
             user: req.user._id,
@@ -45,7 +45,7 @@ router.post('/:diy_projectId/comments', auth, async (req, res) => {
 
         res.status(201).json(diy_project);
     } catch (err) {
-        console.error('Error adding comment:', err);
+        console.error('Ошибка:', err);
         res.status(500).json({ message: err.message });
     }
 });
@@ -60,12 +60,12 @@ router.get('/:diy_projectId/comments', async (req, res) => {
             select: 'username'  // Только поле username
         });
         if (!diy_project) {
-            return res.status(404).json({ message: 'diy_project not found' });
+            return res.status(404).json({ message: 'diy_project не найден' });
         }
 
         res.json(diy_project.comments);
     } catch (err) {
-        console.error('Error fetching comments:', err);
+        console.error('Ошибка:', err);
         res.status(500).json({ message: err.message });
     }
 });

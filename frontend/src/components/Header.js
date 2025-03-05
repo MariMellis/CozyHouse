@@ -52,8 +52,6 @@ const Header = ({ token, username, handleLogout }) => {
               <span className="username" onClick={toggleDropdown}>👋 Привет, {username}!</span>
               {isDropdownOpen && (
                 <div className="dropdown-menu">
-                  <Link to="/settings" className="dropdown-item">Настройки</Link>
-                  <Link to="/my-experiments" className="dropdown-item">Мои DIY-проекты</Link>
                   <button className="dropdown-item" onClick={handleLogout}>Выход из приложения</button>
                 </div>
               )}

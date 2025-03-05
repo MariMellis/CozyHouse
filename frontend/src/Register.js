@@ -31,7 +31,7 @@ function Register() {
       if (err.response && err.response.data) {
         setError(err.response.data.message);
       } else {
-        setError('Ой-ой! Что-то пошло не так... Попробуйте позже');
+        setError('Ошибка');
       }
     }
   };

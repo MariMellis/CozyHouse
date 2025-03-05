@@ -69,15 +69,15 @@ function DIY_Projects({ token, setToken }) {
                 </Link>
             </div>
             <div align="center" className="content">
-                <div className="experiment-grid">
+                <div className="diy_project-grid">
                     {/* Выводим список проектов в виде "карточек" */}
                     {diy_projects.map(diy_project => (
-                        <div className="experiment-card" key={diy_project._id}>
-                            {diy_project.imageUrl && <img src={`http://localhost:1234${diy_project.imageUrl}`} alt={diy_project.title} className="experiment-image" />}
-                            <Link to={`/diy_projects/${diy_project._id}`} className="experiment-link">
-                                <h1 className="experiment-title">{diy_project.title}</h1>
+                        <div className="diy_project-card" key={diy_project._id}>
+                            {diy_project.imageUrl && <img src={`http://localhost:1234${diy_project.imageUrl}`} alt={diy_project.title} className="diy_project-image" />}
+                            <Link to={`/diy_projects/${diy_project._id}`} className="diy_project-link">
+                                <h1 className="diy_project-title">{diy_project.title}</h1>
                             </Link>
-                            <div className="experiment-info">
+                            <div className="diy_project-info">
                                 <p><strong>Автор:</strong> {diy_project.username}</p>
                                 <p><strong>Дата добавления:</strong> {new Date(diy_project.dateAdded).toLocaleDateString()}</p>
                             </div>

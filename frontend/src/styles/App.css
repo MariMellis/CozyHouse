@@ -275,12 +275,12 @@ p {
   text-decoration: underline;
 }
 
-.experiment-grid {
+.diy_project-grid {
   display: block;
   padding: 20px;
 }
 
-.experiment-card {
+.diy_project-card {
   display: flex;
   align-items: center;
   background: #fff;
@@ -291,11 +291,11 @@ p {
   width: 100%;
 }
 
-.experiment-card:hover {
+.diy_project-card:hover {
   background-color: #f9f9f9;
 }
 
-.experiment-link {
+.diy_project-link {
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -303,13 +303,13 @@ p {
   width: 100%;
 }
 
-.experiment-title {
+.diy_project-title {
   font-size: 1.2rem;
   color: #333;
   margin: 0 0 4px;
 }
 
-.experiment-image {
+.diy_project-image {
   width: 100px;
   height: auto;
   margin-left: 16px;
@@ -318,19 +318,19 @@ p {
   border-radius: 4px;
 }
 
-.experiment-info {
+.diy_project-info {
   color: #555;
 }
 
-.experiment-info p {
+.diy_project-info p {
   margin: 4px 0;
 }
 
-.experiment-info strong {
+.diy_project-info strong {
   color: #333;
 }
 
-.experiment-details-container {
+.diy_project-details-container {
   max-width: 900px;
   margin: 2rem auto;
   padding: 1.5rem;
@@ -340,14 +340,14 @@ p {
   transition: box-shadow var(--transition-speed);
 }
 
-.experiment-title {
+.diy_project-title {
   font-size: 2.5rem;
   color: #333;
   text-align: left;
   margin-bottom: 20px;
 }
 
-.experiment-meta {
+.diy_project-meta {
   display: flex;
   gap: 1rem;
   font-size: 0.9rem;
@@ -355,11 +355,11 @@ p {
   margin-bottom: 1rem;
 }
 
-.experiment-meta>div {
+.diy_project-meta>div {
   margin-bottom: 10px;
 }
 
-.experiment-detail-image {
+.diy_project-detail-image {
   width: 100%;
   height: auto;
   border-radius: 8px;
@@ -397,37 +397,37 @@ p {
   color: #0056b3;
 }
 
-.experiment-description,
-.experiment-ingredients,
-.experiment-instructions,
-.experiment-comments {
+.diy_project-description,
+.diy_project-ingredients,
+.diy_project-instructions,
+.diy_project-comments {
   margin-bottom: 20px;
 }
 
-.experiment-description p,
-.experiment-ingredients ul,
-.experiment-instructions ol {
+.diy_project-description p,
+.diy_project-ingredients ul,
+.diy_project-instructions ol {
   margin: 0;
   padding-left: 20px;
   line-height: 1.6;
   color: #555;
 }
 
-.experiment-ingredients ul {
+.diy_project-ingredients ul {
   list-style: disc;
 }
 
-.experiment-instructions ol {
+.diy_project-instructions ol {
   list-style: decimal;
 }
 
-.experiment-comments {
+.diy_project-comments {
   padding: 20px;
   background-color: #ffffff;
   border-radius: 5px;
 }
 
-.experiment-comments h2 {
+.diy_project-comments h2 {
   margin-top: 0;
 }
 

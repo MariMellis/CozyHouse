@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     const diy_projects = await DIY_Project.find().populate('user', 'username');
     res.json(diy_projects);
   } catch (err) {
-    res.status(500).send('Server error');
+    res.status(500).send('Ошибка');
   }
 });
 
@@ -35,11 +35,11 @@ router.get('/:id', async (req, res) => {
   try {
     const diy_project = await DIY_Project.findById(req.params.id);
     if (!diy_project) {
-      return res.status(404).send('Эксперимент не найден');
+      return res.status(404).send('Проект не найден');
     }
     res.json(diy_project);
   } catch (error) {
-    res.status(500).send('Ошибка сервера');
+    res.status(500).send('Ошибка');
   }
 });
 
@@ -51,18 +51,18 @@ router.post('/', auth, upload.single('image'), async (req, res) => {
     const user = await User.findById(req.user);
     // проверка на наличие пользователя
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: 'Пользователь не найден' });
     }
 
     // загрузка картинки, логирование, сохранение проекта
     const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
-    console.log('Image URL to be saved:', imageUrl);
+    console.log('URL картинки:', imageUrl);
     const diy_project = new DIY_Project({ title, instructions, user: req.user, username: user.username, difficulty, description, imageUrl });
-    console.log('Uploaded file path:', imageUrl); // Отладочный вывод
+    console.log('Путь:', imageUrl); // Отладочный вывод
     await diy_project.save();
     res.status(201).json(diy_project);
   } catch (err) {
-    res.status(500).send('Server error');
+    res.status(500).send('Ошибка');
   }
 });
 

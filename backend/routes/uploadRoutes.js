@@ -31,7 +31,7 @@ router.post('/diy_projects', auth, upload.single('image'), async (req, res) => {
     try {
         const user = await User.findById(req.user);
         if (!user) {
-            return res.status(404).json({ message: 'User not found' });
+            return res.status(404).json({ message: 'Пользователь не найден' });
         }
         
         const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
@@ -49,7 +49,7 @@ router.post('/diy_projects', auth, upload.single('image'), async (req, res) => {
         res.status(201).json(diy_project);
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server error');
+        res.status(500).send('Ошибка');
     }
 });
 

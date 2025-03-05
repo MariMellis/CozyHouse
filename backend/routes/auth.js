@@ -17,7 +17,7 @@ router.post('/register', async (req, res) => {
         // проверка на существование пользователя
         const existingUser = await User.findOne({ username });
         if (existingUser) {
-            return res.status(400).json({ message: 'Такой пользователь уже существует' });
+            return res.status(400).json({ message: 'Такой пользователь уже есть' });
         }
         
         // хэширование пароля
@@ -25,10 +25,10 @@ router.post('/register', async (req, res) => {
         const user = new User({ username, password: hashedPassword });
         await user.save();
 
-        res.status(201).send('User registered successfully!');
+        res.status(201).send('Пользователь зарегистрирован успешно!');
     } catch (err) {
         console.error(err);
-        res.status(500).send('Ой-ой! Ошибка сервера');
+        res.status(500).send('Ошибка сервера');
     }
 });
 
@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
         res.json({ token, userId: user._id, username: user.username });
     } catch (err) {
         console.error(err);
-        res.status(500).send('Ой-ой! Ошибка сервера');
+        res.status(500).send('Ошибка сервера');
     }
 });
 

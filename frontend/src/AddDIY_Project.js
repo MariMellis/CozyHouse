@@ -75,7 +75,7 @@ function AddDIY_Project({ token, setToken }) {
     setImage(null);
     } catch (error) {
     console.error(error);
-    alert('Ой-ой! Ошибка сервера...');
+    alert('Ошибка');
     }
     };  
 
@@ -87,7 +87,7 @@ function AddDIY_Project({ token, setToken }) {
       <Header token={token} username={username} handleLogout={handleLogout} />
 
       <div align="center" className="content">
-        <form onSubmit={handleSubmit} className = "experiment-form" method="post" encType="multipart/form-data">
+        <form onSubmit={handleSubmit} className = "diy_project-form" method="post" encType="multipart/form-data">
         <h2>Добавление проекта</h2>
           {error && <p>{error}</p>}
           <br></br>

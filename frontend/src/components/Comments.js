@@ -15,7 +15,7 @@ const Comments = ({ diy_projectId, token }) => {
                 const response = await axios.get(`http://localhost:1234/comments/${diy_projectId}/comments`);
                 setComments(response.data);
             } catch (error) {
-                console.error("Error fetching comments:", error);
+                console.error("Ошибка:", error);
             }
         };
 
@@ -33,7 +33,7 @@ const Comments = ({ diy_projectId, token }) => {
             setComments(response.data.comments);
             setNewComment('');
         } catch (error) {
-            console.error("Error adding comment:", error);
+            console.error("Ошибка:", error);
         }
     };
 

@@ -64,16 +64,16 @@ function DIY_ProjectDetails({ token, setToken }) {
         </Helmet>
         <Header token={token} username={username} handleLogout={handleLogout} />
 
-            <div className="experiment-details-container">
-            <h1 className="experiment-title">{diy_project.title}</h1>
-            <div className="experiment-meta">
+            <div className="diy_project-details-container">
+            <h1 className="diy_project-title">{diy_project.title}</h1>
+            <div className="diy_project-meta">
               {/* показываем основную информацию на "карточке проекта": автора, дату добавления, сложность*/}
               <div>Автор: {diy_project.username}</div>
               <div>Дата добавления: {new Date(diy_project.dateAdded).toLocaleDateString()}</div>
               <div>Сложность: {diy_project.difficulty}</div>
             </div>
             {/* загружаем картинку из папки "./uploads", находящейся на сервере */}
-            {diy_project.imageUrl && <img src={`http://localhost:1234${diy_project.imageUrl}`} className="experiment-detail-image" />}
+            {diy_project.imageUrl && <img src={`http://localhost:1234${diy_project.imageUrl}`} className="diy_project-detail-image" />}
             <br></br>
             <div className="menu2">
               {/* показываем навигационное окно с разделами (как в Википедии) */}
@@ -86,11 +86,11 @@ function DIY_ProjectDetails({ token, setToken }) {
               </ol>
             </div>
             <h2 id="description">Описание</h2>
-            <div className="experiment-description">
+            <div className="diy_project-description">
               <p align="left">{diy_project.description}</p>
             </div>
 
-            <div className="experiment-instructions">
+            <div className="diy_project-instructions">
               <h2 id="instructions">Инструкции</h2>
               <ol>
                 {diy_project.instructions.split('\n').map((instruction, index) => (
@@ -98,7 +98,7 @@ function DIY_ProjectDetails({ token, setToken }) {
                 ))}
               </ol>
             </div>
-            <div className="experiment-comments">
+            <div className="diy_project-comments">
               <h2 id="comments">Комментарии к эксперименту</h2>
               <Comments diy_projectId={id} token={token} />
             </div>
